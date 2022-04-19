@@ -12,3 +12,7 @@ class ZeroTier(BaseVpnBackend):
     # BaseVpnBackend attributes
     vpn_pattern = vpn_pattern
     config_suffix = config_suffix
+
+    @classmethod
+    def auto_client(cls, host, server, **kwargs):
+        return {'zerotier': [{**server, 'host': host}]}
